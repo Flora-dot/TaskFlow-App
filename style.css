@@ -3,9 +3,12 @@
 :root {
     --Black: #0b0b0b;
     --Light-Grey: #ccc6d4;
-    --Dark-Grey: #5a585e;
+    --Dark-Grey: #373737;
     --White: #f2f2f2;
-    --Blue: #6C63FF;
+    --Purple: #6C63FF;
+    --Red: #FF3B30;
+    --Orange: #FFA726;
+    --Green: #4CAF50;
 }
 
 * {
@@ -14,9 +17,68 @@
     padding: 0;
 }
 
+
+/* STYLES FOR LIGHT THEME */
 .light-theme {
     background-color: var(--White);
+    transition: ease 2s opacity;
 }
+
+.light-theme a.logo,
+.light-theme .intro-wrapper h1,
+.light-theme .search-wrapper p,
+.light-theme .empty-task-wrapper h1,
+.light-theme .create-task-wrapper h5,
+.light-theme .create-task-wrapper p   {
+    color: var(--Black);
+}
+
+.light-theme .theme-btn,
+.light-theme .search-field,
+.light-theme .create-task-wrapper input,
+.light-theme .priority-wrapper {
+    border: 1px solid var(--Dark-Grey);
+    color: var(--Dark-Grey);
+    box-shadow: 2px 1px 4px var(--Dark-Grey);
+}
+
+.light-theme .priority-wrapper input {
+    border: none;
+    box-shadow: none;
+}
+
+.light-theme .theme-btn svg,
+.light-theme .search-field svg,
+.light-theme .priority-wrapper svg {
+    fill: var(--Dark-Grey);
+}
+
+.light-theme .intro-wrapper .tagline,
+.light-theme .intro-wrapper div > p ,
+.light-theme .search-field input::placeholder,
+.light-theme .create-task-wrapper input::placeholder {
+    color: var(--Dark-Grey);
+}
+
+.light-theme .get-started-btn {
+    border: 1px solid var(--Dark-Grey);
+}
+
+.light-theme .intro-group,
+.light-theme .create-task-wrapper,
+.light-theme .create-task-wrapper ul {
+    box-shadow: 2px 4px 4px var(--Dark-Grey);
+}
+
+.light-theme section.create-task-wrapper {
+    background-color: var(--White);
+}
+
+.light-theme .create-task-wrapper ul li:hover {
+    background-color: var(--Black);
+}
+
+/* ENDS HERE */
 
 body {
     min-height: 100vh;
@@ -34,10 +96,13 @@ header {
     padding: 30px 50px;
 }
 
-h2.app-title {
+
+a.logo {
     font-size: 2.3rem;
     letter-spacing: 2px;
-    /* color: var(--Light-Grey); */
+    font-weight: 700;
+    color: var(--White);
+    text-decoration: none;
 }
 
 .theme-btn {
@@ -53,6 +118,12 @@ h2.app-title {
     gap: 5px;
     cursor: pointer;
     position: relative;
+    transition: opacity 2s ease;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+}
+
+.theme-btn svg {
+    fill: var(--Light-Grey);
 }
 
 .theme-list {
@@ -60,7 +131,7 @@ h2.app-title {
     right: 53px;
     top: 78px;
     width: 120px;
-    background-color: var(--Blue);
+    background-color: var(--Purple);
     list-style: none;
     display: none;
     flex-direction: column;
@@ -81,7 +152,7 @@ h2.app-title {
 
 .theme-list li:hover {
     background-color: var(--White);
-    color: var(--Blue);
+    color: var(--Purple);
     border-radius: 8px;
 }
 
@@ -95,19 +166,21 @@ h2.app-title {
 }
 
 .intro-wrapper {
-    width: 45%;
+    width: 50%;
 }
 
 .intro-wrapper h1 {
     margin: 0 0 55px;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     letter-spacing: 2px;
     font-weight: bold;
     color: var(--White);
+    font-weight: 900;
 }
 
 .intro-wrapper .tagline {
     font-size: 1.8rem;
+    font-weight: 700;
     margin: 0 0 50px;
     color: var(--Light-Grey);
 }
@@ -121,6 +194,7 @@ h2.app-title {
 
 .intro-wrapper div > p {
     font-size: 1.3rem;
+    font-weight: 500;
     margin: 0 0 15px;
     color: var(--Light-Grey);
 }
@@ -133,12 +207,11 @@ h2.app-title {
 }
 
 .intro-wrapper div input::placeholder {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .intro-wrapper div input:focus {
     outline: none;
-    background-color: var(--Light-Grey);
 }
 
 .get-started-btn {
@@ -146,7 +219,7 @@ h2.app-title {
     width: 50%;
     padding: 15px 30px;
     border-radius: 10px;
-    background-color: var(--Blue);
+    background-color: var(--Purple);
     color: var(--White);
     text-transform: uppercase;
     font-family: "Nunito", sans-serif;
@@ -165,8 +238,447 @@ h2.app-title {
     width: 50%;
 }
 
-video {
-    width: 50%;
+/* Landing Page ends here */
+
+
+/* Task.html starts here */
+.task-wrapper {
+    margin: 20px 0;
+    padding: 0 90px 20px;
 }
 
-/* Landing Page ends here */
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-wrapper p  {
+    color: var(--White);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.search-field {
+    /* margin: 30px auto; */
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--Light-Grey);
+    border-radius: 10px;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+}
+
+.search-field input {
+    width: 78%;
+    padding: 10px;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.search-field input::placeholder {
+    font-size: 1.2rem;
+    color: var(--Light-Grey);
+}
+
+.search-field button {
+    width: 20%;
+    height: 100%;
+    padding: auto;
+    background-color: transparent;
+    border: none;
+}
+
+.search-field svg {
+    fill: var(--Light-Grey);
+}
+
+.empty-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.empty-task-wrapper {
+    width: 60%;
+}
+
+.empty-task-wrapper h1 {
+    font-size: 2.8rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin: 40px 0;
+}
+
+.intro-group {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 70px;
+    border-radius: 12px;
+    background-color: var(--Purple);
+    color: var(--White);
+}
+
+.intro-group h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.intro-group p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.add-task-btn {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--Black);
+    color: var(--White);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.add-task-btn:hover {
+    transition: ease 2s;
+    /* transform: scale(1.1); */
+}
+
+.add-task-btn svg {
+    fill: var(--White);
+}
+
+.empty-container img {
+    width: 40%;
+}
+
+
+/* Create task */
+.modal-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 18px 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+section.create-task-wrapper {
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 38%;
+    padding: 20px 30px 30px;
+    background-color: var(--Black);
+    border-radius: 10px;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+    position: relative;
+}
+
+.create-task-wrapper h5 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 30px 0;
+    color: var(--White);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.create-task-wrapper input {
+     width: 100%;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+    margin: 40px 0;
+    color: var(--White);
+}
+
+.create-task-wrapper input::placeholder {
+    font-size: 1.2rem;
+    color: var(--Light-Grey);
+}
+
+.create-task-wrapper p {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin: 25px 0;
+}
+
+.priority-wrapper {
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+    margin: 0 0 5px;
+}
+
+.priority-wrapper input {
+    width: 80%;
+    box-shadow: none;
+    margin: 0;
+}
+
+.priority-wrapper input:focus {
+    outline: none;
+}
+
+.priority-wrapper button {
+    width: 20%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.priority-wrapper svg {
+    fill: var(--Light-Grey);
+}
+
+.create-task-wrapper ul {
+    width: 100%;
+    background-color: transparent;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--Light-Grey);
+    box-shadow: 2px 1px 4px var(--Light-Grey);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.create-task-wrapper ul.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.create-task-wrapper ul li {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.create-task-wrapper ul li:hover {
+    background-color: var(--White);
+    border-radius: 8px;
+}
+
+.high-priority {
+    color: var(--Red);
+}
+
+.high-priority svg {
+    fill: var(--Red);
+}
+
+.medium-priority {
+    color: var(--Orange);
+}
+
+.medium-priority svg {
+    fill: var(--Orange);
+}
+
+.low-priority {
+    color: var(--Green);
+}
+
+.low-priority svg {
+    fill: var(--Green);
+}
+
+.add-task-btn.two {
+    background-color: var(--Purple);
+    width: 100%;
+    margin: 40px 0 0;
+    border: none;
+}
+/* Task.html ends here */
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 850px) {
+    /* Landing page */
+    
+    .intro-wrapper {
+        width: 100%;
+    }
+
+    .landing-page-content-wrapper {
+        margin: 50px 0 0;
+        flex-direction: column;
+    }
+
+    .landing-page-content-wrapper img {
+        width: 40%;
+        margin: 0 0 70px ;
+        order: -1;
+    }
+
+    .intro-wrapper div input,
+    .get-started-btn {
+        width: 100%;
+    }
+
+    /* Landing page ends here */
+
+    /* task page */
+
+    .task-wrapper {
+        padding: 0 40px 20px;
+    }
+
+    .empty-container {
+        flex-direction: column;
+        gap: 45px;
+    }
+
+    .empty-task-wrapper {
+        width: 100%;
+    }
+
+    .intro-group {
+        width: 100%;
+        padding: 30px 35px;
+    } 
+
+    .add-task-btn {
+        width: 100%;
+    }
+
+    .empty-container img {
+        margin: 35px 0 0;
+        width: 60%;
+        order: -1;
+    }
+
+    section.create-task-wrapper {
+        width: 60%;
+    }
+
+    /* task page ends here */
+}
+
+@media (max-width: 650px) {
+    /* Landing page */
+    header {
+        padding: 30px 20px;
+    }
+
+    a.logo {
+        font-size: 1.8rem;
+    }
+
+    .intro-wrapper {
+        width: 100%;
+    }
+
+    .intro-wrapper h1 {
+        font-size: 2.2rem;
+    }
+
+    .landing-page-content-wrapper {
+        padding: 0 20px;
+        margin: 50px 0 0;
+        flex-direction: column;
+    }
+
+    .landing-page-content-wrapper img {
+        width: 70%;
+        margin: 0 0 60px;
+        order: -1;
+    }
+
+    .intro-wrapper div input,
+    .get-started-btn {
+        width: 100%;
+    }
+
+    /* Landing page ends here */
+
+    /* task page */
+
+    .task-wrapper {
+        padding: 0 20px 20px;
+    }
+
+    .search-wrapper {
+        flex-direction: column;
+        gap: 45px;
+    }
+
+    .search-wrapper p {
+        font-size: 1.5rem;
+    }
+    
+    .empty-container {
+        flex-direction: column;
+        gap: 45px;
+    }
+
+    .empty-task-wrapper {
+        width: 100%;
+    }
+
+    .empty-task-wrapper h1 {
+        font-size: 2.2rem;
+    }
+
+    .intro-group {
+        width: 100%;
+        padding: 30px 30px;
+    } 
+
+    .add-task-btn {
+        width: 100%;
+    }
+
+    .empty-container img {
+        margin: 35px 0 0;
+        width: 60%;
+        order: -1;
+    }
+
+    section.create-task-wrapper {
+        width: 90%;
+    }
+
+    /* task page ends here */
+}

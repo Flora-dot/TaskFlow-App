@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +8,12 @@
   </head>
   <body>
     <header>
-      <h2 class="app-title">TaskFlow</h2>
+      <a href="./index.html" class="logo">TaskFlow</a>
       <button class="theme-btn" id="theme-btn">
         Themes<svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
-          fill="#ccc6d4"
           viewBox="0 0 256 256"
         >
           <path
@@ -24,8 +22,8 @@
         </svg>
       </button>
       <ul class="theme-list" id="theme-list">
-        <li>Light</li>
-        <li>Dark</li>
+        <li id="light">Light</li>
+        <li id="dark">Dark</li>
       </ul>
     </header>
     <main class="landing-page-content-wrapper">
@@ -38,10 +36,10 @@
           <input
             type="text"
             name="username"
-            id="username"
+            id="nameInput"
             placeholder="Enter your name"
           />
-          <button class="get-started-btn">Get Started</button>
+          <button class="get-started-btn" onclick="getUserName()">Get Started</button>
         </div>
       </section>
       <img src="./assets/illustration-2.svg" alt="">
@@ -50,14 +48,5 @@
     <script src="script.js"></script>
   </body>
 </html>
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
->>>>>>> 3ab3d152cd2918e75cf4d1e91889bb6232df752e
+
+
