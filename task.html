@@ -10,8 +10,6 @@
     <header>
       <a href="./index.html" class="logo">TaskFlow</a>
 
-      
-
       <button class="theme-btn" id="theme-btn">
         Themes<svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,21 +33,23 @@
       <section class="search-wrapper">
         <p id="greeting"></p>
         <div class="search-field">
-            <input type="search" placeholder="Search for Tasks" />
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="25"
-                height="25"
-                viewBox="0 0 256 256"
-              >
-                <path
-                  d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
-                ></path>
-              </svg>
-            </button>
-          </div>
+          <input type="search" placeholder="Search for Tasks"  id="search-input"/>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 256 256"
+            >
+              <path
+                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </section>
+
+      <!-- Empty State starts here -->
       <section class="empty-container">
         <div class="empty-task-wrapper" id="empty-task-wrapper">
           <h1>Create your Todo List</h1>
@@ -75,34 +75,128 @@
             </button>
           </div>
         </div>
+        <!-- Empty state ends here -->
+
+        
+         <!-- Task Added state -->
+      <section class="task-added-wrapper" id="task-container">
+        <h3>Tasks</h3>
+        <div class="header">
+          <h5>Check Completed tasks</h5>
+          <div class="filter-menu">
+            <button class="filter-btn" onclick="toggleFilterDropDown()">
+              Filter
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                ></path>
+              </svg>
+            </button>
+            <div class="filter-dropdown" id="filter-dropdown">
+              <ul>
+                <li
+                  class="high-priority priority-item"
+                  data-priority="High Priority"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
+                    ></path>
+                  </svg>
+                  High Priority
+                </li>
+                <li
+                  class="medium-priority priority-item"
+                  data-priority="Medium Priority"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
+                    ></path>
+                  </svg>
+                  Medium Priority
+                </li>
+                <li
+                  class="low-priority priority-item"
+                  data-priority="Low Priority"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    fill="#000000"
+                    viewBox="0 0 256 256"
+                  >
+                    <path
+                      d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
+                    ></path>
+                  </svg>
+                  Low Priority
+                </li>
+              </ul>
+              <button class="apply-filter-btn">Apply Filter</button>
+            </div>
+          </div>
+        </div>
+        <ul class="task-list" id="task-list">
+
+        </ul>
+      </section>
+      <!-- Task added state ends her -->
         <img src="./assets/illustration-1.svg" alt="" />
       </section>
 
       <!-- Create Task container starts here -->
-      <div class="modal-wrapper"id="modal-wrapper">
+      <div class="modal-wrapper" id="modal-wrapper">
         <section class="create-task-wrapper" id="create-task-wrapper">
-            <h5>Add to Todo</h5>
-            <input type="text" placeholder="Enter task here" />
-            <p>Choose how important and urgent a task is</p>
-            <div class="priority-wrapper">
-              <input type="text" readonly placeholder="Select Priority" />
-              <button onclick="togglePriorityList()">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="#000000"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <ul id="priority-list">
-              <li class="high-priority priority-item">
-                <svg
+          <h5>Add to Todo</h5>
+          <input type="text" placeholder="Enter task here" id="task-input" />
+          <p>Choose how important and urgent a task is</p>
+          <div class="priority-wrapper">
+            <input
+              type="text"
+              id="priority-input"
+              readonly
+              placeholder="Select Priority"
+            />
+            <button onclick="togglePriorityList()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <ul id="priority-list">
+            <li
+              class="high-priority priority-item"
+              data-priority="High Priority"
+            >
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -113,24 +207,13 @@
                   d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
                 ></path>
               </svg>
-                High Priority
-              </li>
-              <li class="medium-priority priority-item">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="#000000"
-                  viewBox="0 0 256 256"
-                >
-                  <path
-                    d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
-                  ></path>
-                </svg>
-                Medium Priority
-              </li>
-              <li class="low-priority priority-item" >
-                <svg
+              High Priority
+            </li>
+            <li
+              class="medium-priority priority-item"
+              data-priority="Medium Priority"
+            >
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -141,11 +224,25 @@
                   d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
                 ></path>
               </svg>
-                Low Priority
-              </li>
-            </ul>
-            <button class="add-task-btn two" onclick="closeTaskModal()">Add</button>
-          </section>
+              Medium Priority
+            </li>
+            <li class="low-priority priority-item" data-priority="Low Priority">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z"
+                ></path>
+              </svg>
+              Low Priority
+            </li>
+          </ul>
+          <button class="add-task-btn two" onclick="addTask()">Add</button>
+        </section>
       </div>
       <!-- Create Task container ends here -->
     </main>
