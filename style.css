@@ -418,6 +418,7 @@ a.logo {
     justify-content: center;
     gap: 12px;
     height: 50px;
+    border: none;
     border-radius: 10px;
     background-color: var(--Black);
     color: var(--White);
@@ -786,12 +787,12 @@ li.task-item {
     height: 24px;
     border: 2px solid #cbd5e0;
     border-radius: 10px;
-    margin-right: 16px;
     cursor: pointer;
     accent-color: var(--Purple);
 }
 
 .task-title {
+    width: 30%;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -972,6 +973,21 @@ li.task-item {
 
     section.create-task-wrapper {
         width: 90%;
+    }
+
+    .task-list input {
+        width: 18px;
+        height: 18px;
+    }
+
+    .priority {
+        gap: 2px;
+    }
+
+    .delete-btn {
+        width: 60px;
+        font-size: 0.9rem;
+        padding: 5px;
     }
 
     /* task page ends here */

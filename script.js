@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedOption = event.currentTarget;
     const priority = selectedOption.dataset.priority;
     priorityInput.value = priority;
+    togglePriorityList();
   }
 
   // Add click event listeners to all priority options
