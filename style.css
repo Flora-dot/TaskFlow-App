@@ -70,7 +70,8 @@
 .light-theme .intro-group,
 .light-theme .create-task-wrapper,
 .light-theme .create-task-wrapper ul,
-.light-theme li.task-item {
+.light-theme li.task-item,
+.light-theme .close-btn{
     box-shadow: 2px 2px 4px var(--Dark-Grey);
 }
 
@@ -79,8 +80,7 @@
 }
 
 .light-theme .create-task-wrapper ul li:hover,
-.light-theme .filter-menu ul li:hover,
-.light-theme .create-task-wrapper .close-btn {
+.light-theme .filter-menu ul li:hover {
     background-color: var(--Black);
 }
 
@@ -477,8 +477,10 @@ section.create-task-wrapper {
     margin: 35px 0 0;
     align-self: self-end;
     border-radius: 10px;
+    border: none;
     cursor: pointer;
-    background-color: var(--White);
+    background-color: transparent;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
 }
 
 .create-task-wrapper h5 {

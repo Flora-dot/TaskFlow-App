@@ -305,7 +305,7 @@ function getSelectedPriority() {
 
       // Use a data attribute or textContent to get the value
       const priorityValue = element.dataset.priority; 
-      alert(priorityValue);
+      alert (priorityValue);
     });
   });
 }
