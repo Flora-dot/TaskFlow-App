@@ -29,14 +29,17 @@
 .light-theme .search-wrapper p,
 .light-theme .empty-task-wrapper h1,
 .light-theme .create-task-wrapper h5,
-.light-theme .create-task-wrapper p {
+.light-theme .create-task-wrapper p,
+.light-theme .task-added-wrapper h5{
     color: var(--Black);
 }
 
 .light-theme .theme-btn,
 .light-theme .search-field,
 .light-theme .create-task-wrapper input,
-.light-theme .priority-wrapper {
+.light-theme .priority-wrapperc, 
+.light-theme .task-added-wrapper,
+.light-theme .delete-btn{
     border: 1px solid var(--Dark-Grey);
     color: var(--Dark-Grey);
     box-shadow: 2px 1px 4px var(--Dark-Grey);
@@ -67,7 +70,6 @@
 .light-theme .intro-group,
 .light-theme .create-task-wrapper,
 .light-theme .create-task-wrapper ul,
-.light-theme ul.task-list ,
 .light-theme li.task-item {
     box-shadow: 2px 2px 4px var(--Dark-Grey);
 }
@@ -77,12 +79,18 @@
 }
 
 .light-theme .create-task-wrapper ul li:hover,
-.light-theme .filter-menu ul li:hover {
+.light-theme .filter-menu ul li:hover,
+.light-theme .create-task-wrapper .close-btn {
     background-color: var(--Black);
 }
 
-.light-theme .task-added-wrapper  {
-    background-color: var(--Black);
+.light-theme .task-added-wrapper,
+.light-theme .search-field input {
+    color: var(--Black);
+}
+
+.light-theme .task-added-wrapper h3 {
+    color: var(--Purple);
 }
 
 /* ENDS HERE */
@@ -331,16 +339,18 @@ a.logo {
     width: 78%;
     padding: 10px;
     height: 100%;
+    color: var(--White);
     background-color: transparent;
     border: none;
 }
 
 .search-field input:focus {
     outline: none;
+    background-color: transparent;
 }
 
 .search-field input::placeholder {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--Light-Grey);
 }
 
@@ -432,17 +442,20 @@ a.logo {
 
 /* Create task */
 .modal-wrapper {
-    display: none; /* Hidden by default */
+    display: none; 
+    flex-direction: column;
     position: fixed;
+    overflow-y: scroll;
     top: 0;
     left: 0;
-    padding: 18px 0;
+    padding: 30px 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.6); 
     justify-content: center;
     align-items: center;
 }
+
 
 section.create-task-wrapper {
     margin: 0 0 40px;
@@ -456,6 +469,16 @@ section.create-task-wrapper {
     box-shadow: 2px 1px 4px var(--Light-Grey);
     position: relative;
     animation: fadeIn 2s ease;
+}
+
+.close-btn {
+    width: 50px;
+    height: 50px;
+    margin: 35px 0 0;
+    align-self: self-end;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--White);
 }
 
 .create-task-wrapper h5 {
@@ -603,10 +626,10 @@ section.create-task-wrapper {
 }
 
 .task-added-wrapper h3 {
-    font-size: 2.5rem;
+    font-size: 2.89rem;
     text-transform: capitalize;
     letter-spacing: 2px;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
 }
 
@@ -631,6 +654,7 @@ section.create-task-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
 }
 
 .filter-btn {
@@ -639,11 +663,11 @@ section.create-task-wrapper {
     padding: 10px;
     display: flex;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 600;
     align-items: center;
     justify-content: space-between;
     background-color: var(--Purple);
-    color: var(--white);
+    color: var(--White);
     border: none;
     border-radius: 10px;
     box-shadow: 2px 1px 2px var(--Light-Grey);
@@ -674,45 +698,76 @@ section.create-task-wrapper {
 
 .filter-menu ul li {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
     padding: 8px 10px;
     width: 100%;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
+.filter-active {
+    background-color: var(--White);
+}
+
+.filter-menu ul li:hover {
+    background-color: var(--White);
+}
+
+.all-filter {
+    font-weight: 600;
+    color: var(--Purple);
+    margin-left: 15px;
+}
 
 .filter-btn:hover {
     transition: ease 2s;
     transform: scale(1.1);
 }
 
+.filter-btn svg {
+    fill: var(--White);
+}
+
 .apply-filter-btn {
     width: 100%;
     height: 40px;
-    padding: 10px;
+    padding: 8px 10px;
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--Light-Grey);
-    background-color: transparent;
+    color: var(--White);
+    background-color: var(--Purple);
+    border: none;
     border-radius: 10px;
     box-shadow: 2px 1px 2px var(--Light-Grey);
     cursor: pointer;
 }
 
+.apply-filter-btn:hover {
+    opacity: 0.8;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.task-added-wrapper .add-task-btn.two {
+    width: 100%;
+    padding: 10px;
+    margin: 50px auto;
+}
+
 ul.task-list {
     width: 100%;
-    margin: 30px 0;
+    margin: 70px 0;
     background-color: transparent;
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    box-shadow: 2px 1px 4px var(--Light-Grey);
+    gap: 40px;
 }
 
 li.task-item {
@@ -720,7 +775,8 @@ li.task-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 10px;
+    padding: 15px 10px;
+    box-shadow: 2px 1px 4px var(--Light-Grey);
 }
 
 .task-list input {
@@ -730,24 +786,32 @@ li.task-item {
     border-radius: 10px;
     margin-right: 16px;
     cursor: pointer;
-    accent-color: var(--Green);
+    accent-color: var(--Purple);
 }
 
 .task-title {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: capitalize;
 }
 
+.priority {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 .delete-btn {
     background-color: transparent;
-    width: 100px;
+    width: 80px;
     height: 40px;
     padding: 5px 10px;
     border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--White);
     border: 2px solid var(--White);
     box-shadow: 2px 1px 4px var(--Light-Grey);

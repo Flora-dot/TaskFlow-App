@@ -84,7 +84,7 @@
         <div class="header">
           <h5>Check Completed tasks</h5>
           <div class="filter-menu">
-            <button class="filter-btn" onclick="toggleFilterDropDown()">
+            <button class="filter-btn" id="filter-btn">
               Filter
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -100,8 +100,10 @@
             </button>
             <div class="filter-dropdown" id="filter-dropdown">
               <ul>
+                <li class="all-filter priority-item" value="All" data-priority="All">All</li>
                 <li
                   class="high-priority priority-item"
+                  value="High Priority"
                   data-priority="High Priority"
                 >
                   <svg
@@ -119,6 +121,7 @@
                 </li>
                 <li
                   class="medium-priority priority-item"
+                  value="Medium Priority"
                   data-priority="Medium Priority"
                 >
                   <svg
@@ -136,6 +139,7 @@
                 </li>
                 <li
                   class="low-priority priority-item"
+                  value="Low Priority"
                   data-priority="Low Priority"
                 >
                   <svg
@@ -152,21 +156,28 @@
                   Low Priority
                 </li>
               </ul>
-              <button class="apply-filter-btn">Apply Filter</button>
+              <button class="apply-filter-btn" onchange="applyPriorityFilter() ">Apply Filter</button>
             </div>
           </div>
         </div>
         <ul class="task-list" id="task-list">
 
         </ul>
+        <div class="wrapper">
+            <button class="add-task-btn two"  id="add-new-task-btn">Add new task</button>
+        </div>
       </section>
       <!-- Task added state ends her -->
+
         <img src="./assets/illustration-1.svg" alt="" />
       </section>
+
+
 
       <!-- Create Task container starts here -->
       <div class="modal-wrapper" id="modal-wrapper">
         <section class="create-task-wrapper" id="create-task-wrapper">
+            <button onclick="closeTaskModal()" class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#6C63FF" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
           <h5>Add to Todo</h5>
           <input type="text" placeholder="Enter task here" id="task-input" />
           <p>Choose how important and urgent a task is</p>
@@ -177,7 +188,7 @@
               readonly
               placeholder="Select Priority"
             />
-            <button onclick="togglePriorityList()">
+            <button id="toggle-list-btn">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -241,7 +252,7 @@
               Low Priority
             </li>
           </ul>
-          <button class="add-task-btn two" onclick="addTask()">Add</button>
+          <button class="add-task-btn two" id="add-task-btn">Add</button>
         </section>
       </div>
       <!-- Create Task container ends here -->
