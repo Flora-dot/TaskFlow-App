@@ -208,10 +208,12 @@ function createTaskItem(task, index) {
    }
 
    taskItem.innerHTML = `
-       <input type="checkbox" class="complete-checkbox" ${
+      <div class="task-group"> <input type="checkbox" class="complete-checkbox" ${
            task.completed ? "checked" : ""
        } />
        <p class="task-title">${task.name}</p>
+       </div> 
+       <div class="task-group">
        <span class="priority ${priorityClass}" id="priority">${task.priority} <svg
            xmlns="http://www.w3.org/2000/svg"
            width="20"
@@ -225,6 +227,7 @@ function createTaskItem(task, index) {
            </svg>
        </span>
        <button class="delete-btn">Delete</button>
+       </div>
    `;
 
    // Mark task as completed

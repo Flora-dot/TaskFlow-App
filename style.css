@@ -782,6 +782,13 @@ li.task-item {
     box-shadow: 2px 1px 4px var(--Light-Grey);
 }
 
+.task-group {
+    width: 44%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .task-list input {
     width: 24px;
     height: 24px;
@@ -792,7 +799,6 @@ li.task-item {
 }
 
 .task-title {
-    width: 30%;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -973,6 +979,15 @@ li.task-item {
 
     section.create-task-wrapper {
         width: 90%;
+    }
+
+    li.task-item {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .task-group {
+        width: 100%;
     }
 
     .task-list input {
