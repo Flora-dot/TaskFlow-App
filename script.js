@@ -303,7 +303,7 @@ function getSelectedPriority() {
       priorityFilterElements.forEach(el => el.classList.remove("filter-active"));
       element.classList.add("filter-active");
 
-      // Use a data attribute or textContent to get the value
+      // Use a data attribute to get the value
       const priorityValue = element.dataset.priority; 
       alert (priorityValue);
     });
